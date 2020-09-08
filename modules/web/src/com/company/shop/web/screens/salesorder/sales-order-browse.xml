@@ -8,14 +8,8 @@
         <collection id="salesOrdersDc"
                     class="com.company.shop.entity.SalesOrder">
             <view extends="_local">
-                <property name="customer" view="_minimal">
-                    <property name="phone"/>
-                    <property name="email"/>
-                </property>
-                <property name="positions" view="_minimal">
-                    <property name="quantity"/>
-                </property>
-                <property name="totalCost"/>
+                <property name="customer" view="_minimal"/>
+                <property name="positions" view="_minimal"/>
             </view>
             <loader id="salesOrdersDl">
                 <query>
@@ -44,7 +38,6 @@
             <columns>
                 <column id="orderNumber"/>
                 <column id="customer"/>
-                <column id="totalCost"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

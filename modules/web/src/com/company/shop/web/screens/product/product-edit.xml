@@ -5,31 +5,20 @@
         messagesPack="com.company.shop.web.screens.product">
     <data>
         <instance id="productDc"
-                    class="com.company.shop.entity.Product" > 
-            <view   extends="_local"/>
+                  class="com.company.shop.entity.Product">
+            <view extends="_local"/>
             <loader/>
         </instance>
-        
     </data>
-    
     <dialogMode height="600"
                 width="800"/>
-<layout expand="editActions" spacing="true">
-    
-        
-
-<form id="form" dataContainer="productDc">
-<column width="350px">
-	
-	<textField id="nameField" property="name"/>
-	
-	<textField id="priceField" property="price"/>
-	
-</column>
-</form>
-
-        
-        
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="productDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="priceField" property="price"/>
+            </column>
+        </form>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>

@@ -8,9 +8,7 @@
                   class="com.company.shop.entity.SalesOrder">
             <view extends="_local">
                 <property name="customer" view="_minimal"/>
-                <property name="positions" view="_minimal">
-                    <property name="quantity"/>
-                </property>
+                <property name="positions" view="_minimal"/>
             </view>
             <loader/>
         </instance>
