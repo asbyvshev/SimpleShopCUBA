@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://salesOrderEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.shop.web.screens.salesorder">
+    <data>
+        <instance id="salesOrderDc"
+                  class="com.company.shop.entity.SalesOrder">
+            <view extends="_local">
+                <property name="customer" view="_minimal"/>
+                <property name="positions" view="_minimal">
+                    <property name="quantity"/>
+                </property>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="salesOrderDc">
+            <column width="350px">
+                <textField id="orderNumberField" property="orderNumber"/>
+                <pickerField id="customerField" property="customer">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

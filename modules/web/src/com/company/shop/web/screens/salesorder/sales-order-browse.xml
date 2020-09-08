@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://salesOrderBrowse.caption"
+        focusComponent="salesOrdersTable"
+        messagesPack="com.company.shop.web.screens.salesorder">
+    <data readOnly="true">
+        <collection id="salesOrdersDc"
+                    class="com.company.shop.entity.SalesOrder">
+            <view extends="_local">
+                <property name="customer" view="_minimal">
+                    <property name="phone"/>
+                    <property name="email"/>
+                </property>
+                <property name="positions" view="_minimal">
+                    <property name="quantity"/>
+                </property>
+                <property name="totalCost"/>
+            </view>
+            <loader id="salesOrdersDl">
+                <query>
+                    <![CDATA[select e from shop_SalesOrder e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="salesOrdersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salesOrdersTable"
+                dataLoader="salesOrdersDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salesOrdersTable"
+                    width="100%"
+                    dataContainer="salesOrdersDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="orderNumber"/>
+                <column id="customer"/>
+                <column id="totalCost"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="salesOrdersTable.create"/>
+                <button id="editBtn" action="salesOrdersTable.edit"/>
+                <button id="removeBtn" action="salesOrdersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

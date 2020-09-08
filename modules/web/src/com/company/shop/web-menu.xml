@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-shop" insertBefore="administration" caption="mainMsg://menu_config.application-shop">
+        <item screen="shop_Customer.browse" caption="mainMsg://menu_config.shop_Customer.browse"/>
+        <item screen="shop_SalesOrder.browse" caption="mainMsg://menu_config.shop_SalesOrder.browse"/>
+        <item screen="shop_OrderPosition.browse" caption="mainMsg://menu_config.shop_OrderPosition.browse"/>
     </menu>
 </menu-config>
