@@ -55,6 +55,9 @@ public class SalesOrder extends StandardEntity {
     public BigDecimal getTotalCost(){
         BigDecimal totalCost = BigDecimal.ZERO;
         BigDecimal itemCost  = BigDecimal.ZERO;
+        if (positions == null){
+            return totalCost;
+        }
         for (OrderPosition position : positions){
             itemCost = position.getProduct().getPrice().multiply(new BigDecimal(position.getQuantity()));
             totalCost = totalCost.add(itemCost);
