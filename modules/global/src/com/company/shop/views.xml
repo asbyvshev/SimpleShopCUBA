@@ -7,6 +7,5 @@
     </view>
     <view entity="shop_SalesOrder" name="salesOrder-with-customer-and-total" extends="_minimal">
         <property name="customer" view="_minimal"/>
-        <property name="totalCost"/>
     </view>
 </views>

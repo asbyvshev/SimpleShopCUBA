@@ -35,7 +35,6 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </pickerField>
-                <textField id="totalCostField" property="totalCost"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

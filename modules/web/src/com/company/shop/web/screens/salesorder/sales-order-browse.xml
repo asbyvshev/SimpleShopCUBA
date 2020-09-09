@@ -18,7 +18,7 @@
             <view extends="_local"/>
             <loader id="orderPositionsDl">
                 <query>
-                    <![CDATA[select e from shop_OrderPosition e]]>
+                    <![CDATA[select e from shop_OrderPosition e where e.salesOrder = :saleOrder]]>
                 </query>
             </loader>
         </collection>
@@ -43,7 +43,6 @@
             <columns>
                 <column id="orderNumber"/>
                 <column id="customer"/>
-                <column id="totalCost"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
