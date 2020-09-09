@@ -7,13 +7,18 @@
     <data readOnly="true">
         <collection id="salesOrdersDc"
                     class="com.company.shop.entity.SalesOrder">
-            <view extends="_local">
-                <property name="customer" view="_minimal"/>
-                <property name="positions" view="_minimal"/>
-            </view>
+            <view extends="salesOrder-with-customer-and-total"/>
             <loader id="salesOrdersDl">
                 <query>
                     <![CDATA[select e from shop_SalesOrder e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="orderPositionsDc" class="com.company.shop.entity.OrderPosition">
+            <view extends="_local"/>
+            <loader id="orderPositionsDl">
+                <query>
+                    <![CDATA[select e from shop_OrderPosition e]]>
                 </query>
             </loader>
         </collection>
@@ -38,6 +43,7 @@
             <columns>
                 <column id="orderNumber"/>
                 <column id="customer"/>
+                <column id="totalCost"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

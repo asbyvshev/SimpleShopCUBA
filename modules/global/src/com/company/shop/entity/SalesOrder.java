@@ -50,18 +50,18 @@ public class SalesOrder extends StandardEntity {
         this.orderNumber = orderNumber;
     }
 
-    @Transient
-    @MetaProperty(related = {"positions"})
-    public BigDecimal getTotalCost(){
-        BigDecimal totalCost = BigDecimal.ZERO;
-        BigDecimal itemCost  = BigDecimal.ZERO;
-        if (positions == null){
-            return totalCost;
-        }
-        for (OrderPosition position : positions){
-            itemCost = position.getProduct().getPrice().multiply(new BigDecimal(position.getQuantity()));
-            totalCost = totalCost.add(itemCost);
-        }
-        return totalCost;
-    }
+//    @Transient
+//    @MetaProperty(related = {"positions"})
+//    public BigDecimal getTotalCost(){
+//        BigDecimal totalCost = BigDecimal.ZERO;
+//        BigDecimal itemCost  = BigDecimal.ZERO;
+//        if (positions == null){
+//            return totalCost;
+//        }
+//        for (OrderPosition position : positions){
+//            itemCost = position.getProduct().getPrice().multiply(new BigDecimal(position.getQuantity()));
+//            totalCost = totalCost.add(itemCost);
+//        }
+//        return totalCost;
+//    }
 }

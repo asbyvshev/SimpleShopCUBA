@@ -7,10 +7,7 @@
     <data readOnly="true">
         <collection id="orderPositionsDc"
                     class="com.company.shop.entity.OrderPosition">
-            <view extends="_local">
-                <property name="product" view="_minimal"/>
-                <property name="salesOrder" view="_minimal"/>
-            </view>
+            <view extends="orderPosition-with-product-and-order"/>
             <loader id="orderPositionsDl">
                 <query>
                     <![CDATA[select e from shop_OrderPosition e]]>

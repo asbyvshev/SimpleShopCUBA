@@ -5,24 +5,39 @@
         messagesPack="com.company.shop.web.screens.customer">
     <data>
         <instance id="customerDc"
-                  class="com.company.shop.entity.Customer">
-            <view extends="_local"/>
+                    class="com.company.shop.entity.Customer" > 
+            <view   extends="_local"/>
             <loader/>
         </instance>
+        
     </data>
+    
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="editActions" spacing="true">
-        <form id="form" dataContainer="customerDc">
-            <column width="350px">
-                <textField id="firstNameField" property="firstName"/>
-                <textField id="lastNameField" property="lastName"/>
-                <textField id="middleNameField" property="middleName"/>
-                <textField id="phoneField" property="phone"/>
-                <textField id="emailField" property="email"/>
-                <textField id="discountField" property="discount"/>
-            </column>
-        </form>
+<layout expand="editActions" spacing="true">
+    
+        
+
+<form id="form" dataContainer="customerDc">
+<column width="350px">
+	
+	<textField id="firstNameField" property="firstName"/>
+	
+	<textField id="lastNameField" property="lastName"/>
+	
+	<textField id="middleNameField" property="middleName"/>
+	
+	<textField id="phoneField" property="phone"/>
+	
+	<textField id="emailField" property="email"/>
+	
+	<textField id="discountField" property="discount"/>
+	
+</column>
+</form>
+
+        
+        
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>

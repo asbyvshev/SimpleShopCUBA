@@ -6,12 +6,22 @@
     <data>
         <instance id="salesOrderDc"
                   class="com.company.shop.entity.SalesOrder">
-            <view extends="_local">
-                <property name="customer" view="_minimal"/>
-                <property name="positions" view="_minimal"/>
+            <view extends="salesOrder-with-customer-and-total">
+                <property name="customer" view="_minimal">
+                    <property name="phone"/>
+                    <property name="email"/>
+                </property>
             </view>
             <loader/>
         </instance>
+        <collection id="orderPositionsDc" class="com.company.shop.entity.OrderPosition">
+            <view extends="_local"/>
+            <loader id="orderPositionsDl">
+                <query>
+                    <![CDATA[select e from shop_OrderPosition e where e.salesOrder = :salesOrder]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -25,6 +35,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </pickerField>
+                <textField id="totalCostField" property="totalCost"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
